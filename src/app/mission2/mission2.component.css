@@ -1,0 +1,56 @@
+/*
+.mission_card {
+    margin:0 auto; 
+}
+*/ 
+.text_label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card_title1 {
+    color: #63659f;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.text_value{
+    color: #63659f;
+    font-weight: 400;
+}
+
+.filterBTNcontainer{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filterBTN {
+        flex: 0 1 40%;
+        margin: 10px;
+}
+
+.filterCard{
+    width: 17rem;
+    margin-bottom: 15px;
+    margin-left: 50px;
+}
+
+/*
+#yearID.active {
+    color:white;
+  }
+
+  .Success{
+    color:white;
+    background-color: green;
+  }
+  .Danger{
+
+  }
+  */
+  .active a{ color:white;}

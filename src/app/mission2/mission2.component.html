@@ -1,0 +1,143 @@
+
+<div class="container-fluid" >
+    <div class="row">
+
+
+
+        <div class="col-sm-12 col-md-4 col-lg-3"style="background-color:#f3f3f3;">
+
+            <div class="filterCard card" >
+                <div class="card-body">
+                  <h4 class="card-title">Filters</h4>
+                  <div>
+                    <div style="text-align: center!important; margin-top: -1rem;">Launch Year</div>
+                    <hr width="100%" />
+                   <div class="row">
+                      <div class="filterBTNcontainer" >
+      
+                          <button type="button" *ngFor="let launchYear of yearUnique ;"  [ngClass]="{active: isActive(launchYear)}" (click)="lauchYear(launchYear)" 
+                          class="filterBTN btn btn-outline-success" >
+                           <a>  {{launchYear}}  </a>
+  
+                          </button>
+   
+
+                        </div>
+                   </div>
+                  </div>
+                  <br/>
+                  <div>
+                    <div style="text-align: center!important; margin-top: -1rem;">Successful Launch</div>
+                    <hr width="100%" />
+                    <div class="row">
+                      <div class="filterBTNcontainer" >
+                          <button type="button"  (click)="missionLaunching('True');" class="filterBTN btn btn-outline-success"  [ngClass]="{active: isActiveLaunching('True')}">
+                            <a>True</a>
+  
+                          </button>
+                          <button type="button"  (click)="missionLaunching('False');" class="filterBTN btn btn-outline-success" [ngClass]="{active: isActiveLaunching('False')}" >
+                            <a>False</a>
+   
+                           </button>
+                        </div>
+                   </div>
+                  </div>
+
+                  <br/>
+                  <div>
+                    <div style="text-align: center!important; margin-top: -1rem;">Successful Landing</div>
+                    <hr width="100%" />
+                   <div class="row">
+                    <div class="filterBTNcontainer" >
+                        <button type="button"  (click)="missionLanding('True');" [ngClass]="{active: isActiveLanding('True')}" class="filterBTN btn btn-outline-success" >
+                         <a>True</a>
+
+                        </button>
+                        <button type="button"  (click)="missionLanding('False');" [ngClass]="{active: isActiveLanding('False')}" class="filterBTN btn btn-outline-success" >
+                          <a>False</a>
+ 
+                         </button>
+                      </div>
+                 </div>
+                  </div>
+                 
+                  
+                  
+             
+                </div>
+                
+              </div>
+
+        </div>
+
+
+
+           <div class="col-sm-12 col-md-8 col-lg-9"style="background-color:#f3f3f3;">
+             <div class="row">
+              <div class="mission_card" *ngFor="let missionData of missionListData; let i=index">
+                   <div class="col-lg-3 col-md-3" >
+                    <div class="card" style="width:14rem;padding:1rem;margin-bottom: 15px;" >
+                        <div style="background-color: #f2f2f2;">
+                            <img class="card-img-top" src="{{missionData.links.mission_patch_small}}"  alt="Card image" style="width:200px; height:200px;">
+                        </div>
+                       
+                        <div class="card-body" style="padding:5px;">
+                          <h4 class="card_title1">{{missionData.mission_name}}  #{{missionData.flight_number}}</h4>
+                         <div>
+                            <span class="text_label">Mission Ids:</span>
+                             <span *ngIf="missionData.mission_id.length > 0 " class="text_value">
+                               <ul *ngFor="let m_id of missionData.mission_id">
+                                    <li> {{m_id}}</li>
+                            
+                                </ul>
+                               
+                              </span>
+                              <!--
+                              <span *ngIf="missionData.mission_id.length == 0 " class="text_value">
+                                <ul>
+                                      <li> </li>                 
+                                 </ul>
+                               </span> -->
+                         </div> 
+                        
+                         <div>
+                            <span class="text_label">Launch Year: </span>
+                            <span class="text_value">{{missionData.launch_year}}</span>
+                        </div>
+                        <div >
+                            <span class="text_label">Successful Launch: </span>
+                            <span class="text_value">
+                            {{missionData.launch_success ? "True" : "False"}}
+                            </span>
+                        </div>
+
+                        <div class="mission_field">
+                            <span class="text_label">Successful Landing: </span>
+                            <span class="text_value">
+                              <span *ngIf="missionData.rocket.first_stage.cores[0].landing_intent === null"> Null</span>
+                              <span *ngIf="missionData.rocket.first_stage.cores[0].landing_intent !== null"> 
+                                {{missionData.rocket.first_stage.cores[0].land_success
+                                  ? "True"
+                                  : "False"}}
+                              </span>
+                      
+                            </span>
+                          </div>
+
+                        </div>
+                      </div>
+
+                   </div>
+               
+
+
+
+              </div>
+            </div>
+           </div>
+    </div>
+<br/>
+    <div style="text-align: center;"><h4>Developed by : Vikas HS </h4></div>
+    <br/>
+</div>
+
